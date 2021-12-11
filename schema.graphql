@@ -5,14 +5,14 @@ type Query {
 }
 
 type Mutation {
-  addTodo(input: AddTodoInput): Todo
+  createTodo(input: CreateTodoInput): Todo
   updateTodo(id: Int, input: UpdateTodoInput): Todo
   deleteTodo(id: Int): Todo
-  createUser(id: String, input: UserInput): User
-  updateUser(id: String, input: UserInput): User
+  createUser(input: CreateUserInput): User
+  updateUser(id: Int, input: UpdateUserInput): User
 }
 
-input AddTodoInput {
+input CreateTodoInput {
   title: String!
   description: String
 }
@@ -23,8 +23,12 @@ input UpdateTodoInput {
   status: TodoStatus
 }
 
-input UserInput {
+input CreateUserInput {
   name: String!
+}
+
+input UpdateUserInput {
+  name: String
 }
 
 enum TodoStatus {
@@ -40,11 +44,11 @@ type Todo {
   description: String
   status: TodoStatus!
   user: User
-  userId: String
+  userId: Int
 }
 
 type User {
-  id: String
+  id: Int
   name: String
   todos: [Todo]
 }
