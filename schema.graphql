@@ -1,13 +1,12 @@
 type Query {
   getUserById(id: Int!): User
-  # getTodos: [Todo]!
   getTodoById(id: Int!): Todo
 }
 
 type Mutation {
-  createTodo(input: CreateTodoInput!): Todo
-  updateTodo(id: Int!, input: UpdateTodoInput!): Todo
-  deleteTodo(id: Int!): Todo
+  createTodo(userId: Int!, input: CreateTodoInput!): Todo
+  updateTodo(userId: Int!, id: Int!, input: UpdateTodoInput!): Todo
+  deleteTodo(userId: Int!, id: Int!): Todo
   createUser(input: CreateUserInput!): User
   updateUser(id: Int!, input: UpdateUserInput!): User
 }
