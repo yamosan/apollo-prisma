@@ -5,11 +5,11 @@ type Query {
 }
 
 type Mutation {
-  createTodo(input: CreateTodoInput): Todo
-  updateTodo(id: Int, input: UpdateTodoInput): Todo
-  deleteTodo(id: Int): Todo
-  createUser(input: CreateUserInput): User
-  updateUser(id: Int, input: UpdateUserInput): User
+  createTodo(input: CreateTodoInput!): Todo
+  updateTodo(id: Int!, input: UpdateTodoInput!): Todo
+  deleteTodo(id: Int!): Todo
+  createUser(input: CreateUserInput!): User
+  updateUser(id: Int!, input: UpdateUserInput!): User
 }
 
 input CreateTodoInput {
