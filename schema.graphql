@@ -1,6 +1,7 @@
 type Query {
   getUserById(id: Int!): User
-  getTodoById(id: Int!): Todo
+  getTodos(userId: Int!): [Todo]
+  getTodoById(userId: Int!, id: Int!): Todo
 }
 
 type Mutation {

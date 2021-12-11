@@ -66,12 +66,19 @@ export type MutationUpdateUserArgs = {
 export type Query = {
   __typename?: 'Query';
   getTodoById?: Maybe<Todo>;
+  getTodos?: Maybe<Array<Maybe<Todo>>>;
   getUserById?: Maybe<User>;
 };
 
 
 export type QueryGetTodoByIdArgs = {
   id: Scalars['Int'];
+  userId: Scalars['Int'];
+};
+
+
+export type QueryGetTodosArgs = {
+  userId: Scalars['Int'];
 };
 
 
@@ -225,7 +232,8 @@ export type MutationResolvers<ContextType = any, ParentType extends ResolversPar
 };
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
-  getTodoById?: Resolver<Maybe<ResolversTypes['Todo']>, ParentType, ContextType, RequireFields<QueryGetTodoByIdArgs, 'id'>>;
+  getTodoById?: Resolver<Maybe<ResolversTypes['Todo']>, ParentType, ContextType, RequireFields<QueryGetTodoByIdArgs, 'id' | 'userId'>>;
+  getTodos?: Resolver<Maybe<Array<Maybe<ResolversTypes['Todo']>>>, ParentType, ContextType, RequireFields<QueryGetTodosArgs, 'userId'>>;
   getUserById?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType, RequireFields<QueryGetUserByIdArgs, 'id'>>;
 };
 
