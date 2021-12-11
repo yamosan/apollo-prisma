@@ -1,1 +1,1 @@
-export {};
+export { getUserById } from "./getUserById";

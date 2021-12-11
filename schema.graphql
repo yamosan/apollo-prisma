@@ -1,6 +1,6 @@
 type Query {
-  getUser: User
-  getTodos: [Todo]!
+  getUserById(id: Int!): User
+  # getTodos: [Todo]!
   getTodoById(id: Int!): Todo
 }
 
